@@ -1,0 +1,21 @@
+{
+  "name": "Smart Home",
+  "short_name": "Home",
+  "description": "access your home from anywhere in the world",
+  "lang": "en-US",
+  "dir": "ltr",
+  "theme_color": "#ff9a00",
+  "start_url": ".",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "icons": [{
+    "src": "images/home 64x64.png",
+    "sizes": "64x64",
+    "type": "image/png"
+   }, {
+    "src": "images/home 512x512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+   }]
+ }

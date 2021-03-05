@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Info</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="images/home.png"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/app info style.css">
+  <link href="css/album.css" rel="stylesheet">
+  <link href="asset/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+          <!-- Sweet Alert JavaScript -->
+          <script src="js/sweetalert2.js"></script>
+  
+  
+
+</head>
+<body>
+
+    <!-- sdk firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+
+
+    <!--MENU DIBAWAH -->
+    <nav class="navbar navbar-light bg-light navbar-expand fixed-bottom">
+      <ul class="navbar-nav nav-justified w-100">
+        <li class="nav-item">
+          <a href="adduser.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+              fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+            </svg></a>
+        </li>
+        <li class="nav-item">
+          <a href="control-panel.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+              fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+              <path fill-rule="evenodd"
+                d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+            </svg></a>
+        </li>
+        <li class="nav-item  active">
+          <a href="#" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+              fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+              <path
+                d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+            </svg></a>
+        </li>
+        <li class="nav-item">
+          <a onclick="signOut()" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+              fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" 
+                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg></a>
+        </li>
+      </ul>
+    </nav>
+
+
+          <!-- Heading Control Panel -->
+  <nav class="navbar navbar-light bg-white navbar-expand fixed-top">
+    <ul class="navbar-nav nav-justified w-100">
+      <li class="nav-item">
+        <a class="nav-link">
+          <br>
+          <img style="vertical-align:middle" src="images/home.png" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"></svg>
+        <span style="vertical-align:middle; color:black; font-size:23px;">About</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<!-- Second Container -->
+<div class="container-fluid bg-3 text-center">
+  <img src="images/home.png" class="img-responsive center" style="display:inline" width="100" height="100">
+  <div class="container">
+<h3 class="margin">Home</h3>
+<p class="text-justify">Smart Home adalah sebuah sistem yang merupakan bagian dari teknologi Internet Of Things, yang secara sederhana adalah teknologi yang memungkinkan terjadinya komunikasi antara satu mesin dengan mesin lainnya.
+  di indonesia sendiri teknologi ini terbilang cukup baru sehingga masih sedikit orang atau masyarakat yang tahu dan mengadopsi teknologi ini.
+  sistem ini saya buat selain untuk memudahkan pemilik rumah dalam melakukan monitoring jarak jauh dengan kondisi rumahnya secara real-time juga sekaligus memperkenalkan
+  teknologi Internet Of Things kepada masyarakat awam, dengan harapan kedepannya teknologi ini makin banyak diadopsi pada bidang-bidang lainnya seperti Smart City dan Smart Farming.</p>
+</div>
+</div>
+<br>
+
+<!-- Container (The Band Section) -->
+<div id="band" class="container text-center">
+  <h5 class="margin">Cara Kerja Sistem</h5><br>
+    <div class="col-lg-10 col-md-10 offset-lg-1 offset-md-1 bg-white mb-5 border border-warning rounded">
+      <div class="row">
+          <div class="col-lg-6 col-md-6 p-4 divCover"><br>
+              <img src="images/dataflow.png" alt="Firebase cover image" width="100%" height="auto">
+          </div>
+          <div class="col-lg-6 col-md-6 p-lg-5 p-md-5 px-3 py-4 bg-2">
+            <p class="text-justify">Cara kerja system dibagi menjadi dua, yaitu dari sisi rumah dan sisi web app.<br>
+              Untuk cara kerja dari sisi rumah, pada saat dihidupkan raspberry pi akan langsung menjalankan script untuk melakukan monitoring kondisi rumah melalui data yang ditangkap sensor, mengirimkan notifikasi melalui telegram jika terdeteksi kebocoran GAS elpiji dan akan mengeksekusi perintah pada relay sesuai dengan inputan user melalui web app yang tersimpan di firebase. Sedangkan cara kerja dari sisi web app, untuk keamanan, pengguna diharuskan login terlebih dahulu, setelah login halaman akan dialihkan ke halaman control panel  yang terdapat dashboard untuk monitoring kondisi rumah melalui sensor, serta terdapat delapan tombol ON/OFF untuk mengontrol switch di rumah sesuai dengan inputan yang diberikan oleh pengguna. Keseluruhan sistem baik dari sisi rumah maupun web app, semua terintegrasi dengan firebase real-time database.
+              </p>
+          </div>
+      </div>
+  </div>
+
+
+
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">    
+  <h5 class="margin">Teknologi Yang Digunakan</h5><br>
+  <div class="row">
+    <div class="col-sm-4">
+        <img src="images/tech/firebase.png" class="img-circle margin" style="display:inline" alt="Bird" width="100" height="100" alt="Image">
+        <h3>Firebase</h3>
+      <p>Firebase mempunyai peran sebagai tempat penampung data utama yang memungkinkan Raspberry Pi dan web app berkomunikasi.</p>
+      <br>
+    </div>
+    <div class="col-sm-4"> 
+        <img src="images/tech/python.png" class="img-responsive margin" style="display:inline" alt="Bird" width="100" height="100" alt="Image">
+        <h3>Python</h3>
+      <p>Bahasa Python digunakan dalam membuat sistem Smart Home agar bisa terintegrasi dengan firebase dari sisi Raspberry Pi.</p>
+      <br>
+    </div>
+    <div class="col-sm-4"> 
+        <img src="images/tech/telegram.png" class="img-responsive margin" style="display:inline" alt="Bird" width="100" height="100" alt="Image">
+        <h3>Telegram</h3>
+      <p>Penggunaan telegram di dalam sistem ini untuk mengirimkan notifikasi kepada pengguna jika terdeteksi kebocoran gas.</p>
+      <br>
+    </div>
+    <div class="col-sm-4"> 
+        <img src="images/tech/javascript.png" class="img-responsive margin" style="display:inline" alt="Bird" width="100" height="100" alt="Image">
+        <h3>Javascript</h3>
+      <p>digunakan untuk menghubungkan firebase dengan web app melalui API, berperan untuk mengirim dan menampilkan data real-time.</p>
+      <br>
+    </div>
+    <div class="col-sm-4"> 
+        <img src="images/tech/raspberry pi 2.png" class="img-responsive margin" style="display:inline" alt="Bird" width="100" height="100" alt="Image">
+        <h3>Raspberry Pi</h3>
+      <p>Raspberry Pi adalah otak dari sistem dalam melakukan kontrol secara menyeluruh pada sistem yang ada di rumah.</p>
+      <br>
+    </div>
+    <div class="col-sm-4"> 
+        <img src="images/tech/sensor.png" class="img-responsive margin" style="display:inline" alt="Bird" width="100" height="100" alt="Image">
+        <h3>Sensor</h3>
+      <p>Sensor bertugas untuk melakukan monitoring kondisi rumah dan datanya akan ditampilkan pada web app secara real-time.</p>
+      <br>
+    </div>
+    <div class="col-sm-4"> 
+        <img src="images/tech/switch.png" class="img-responsive margin" style="display:inline" alt="Bird" width="100" height="100" alt="Image">
+        <h3>Switch</h3>
+      <p>Switch berfungsi untuk mengatur kondisi elektronik didalam rumah dengan menerima perintah input biner 1/0 dari Raspberry Pi.</p>
+      <br>
+    </div>
+    <div class="col-sm-4"> 
+        <img src="images/tech/raspbian.png" class="img-responsive margin" style="display:inline" alt="Bird" width="100" height="100" alt="Image">
+        <h3>Raspbian OS</h3>
+      <p>Sistem Operasi yang digunakan pada Raspberry Pi, berbasis linux dan mempunyai dukungan library yang cukup banyak.</p>
+      <br>
+    </div>
+    <div class="col-sm-4"> 
+        <img src="images/tech/pwa 2.png" class="img-responsive margin" style="display:inline" alt="Bird" width="100" height="100" alt="Image">
+        <h3>PWA</h3>
+      <p>Progressive Web App memberikan pengalaman website dan aplikasi menjadi satu tanpa harus memasang aplikasi tersebut.</p>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+    <!-- Firebase App -->
+    <script src="js/auth.js"></script>   
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+            apiKey: "AIzaSyDAwA56cN8GTyCob1apGwWhcOJBI2lRIWg",
+            authDomain: "integrasi-sensor.firebaseapp.com",
+            databaseURL: "https://integrasi-sensor-default-rtdb.firebaseio.com",
+            projectId: "integrasi-sensor",
+            storageBucket: "integrasi-sensor.appspot.com",
+            messagingSenderId: "51772622735",
+            appId: "1:51772622735:web:29650573a510e325f4edfa"
+      };
+
+    </script>
+
+</body>
+</html>
