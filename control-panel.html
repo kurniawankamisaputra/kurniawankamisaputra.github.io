@@ -269,13 +269,13 @@
                   <div style="text-align: center;">
                     <span class="badge-center badge-warning badge-pill font-weight-bold" id="Switch7" style="font-size: 12px; color: white; text-align: center;">Loading...</span>
                     </div>
-                  <img src="asset/images/lampuoff.png" id="garasi" style="height: 110px">
+                  <img src="asset/images/lampuoff.png" id="ruang_makan" style="height: 110px">
                   <p class="card-text" style="text-align: center;">Ruang Makan
                     <br>
                     Lantai 1
                     <br>
-                    <button type="submit" onclick="garasion()" class="btn btn-outline-dark btn-sm">ON</button>
-                    <button type="submit" onclick="garasioff()"  class="btn btn-outline-dark btn-sm">OFF</button>
+                    <button type="submit" onclick="ruang_makan_on()" class="btn btn-outline-dark btn-sm">ON</button>
+                    <button type="submit" onclick="ruang_makan_off()"  class="btn btn-outline-dark btn-sm">OFF</button>
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
                   </div>
@@ -410,16 +410,16 @@
         });
                                   }
 
-      /* GARASI */
-      function garasion() {
-      document.getElementById("garasi").src = "asset/images/lampuon.png";
+      /* RUANG MAKAN */
+      function ruang_makan_on() {
+      document.getElementById("ruang_makan").src = "asset/images/lampuon.png";
       var hopperRef = firebase.database().ref('sensor').child("Switch7");
       hopperRef.update({
         "state": "ON"
       });
                                   }
-      function garasioff() {
-      document.getElementById("garasi").src = "asset/images/lampuoff.png";
+      function ruang_makan_off() {
+      document.getElementById("ruang_makan").src = "asset/images/lampuoff.png";
       var hopperRef2 = firebase.database().ref('sensor').child("Switch7");
         hopperRef2.update({
           "state": "OFF"
