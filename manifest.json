@@ -12,10 +12,12 @@
   "icons": [{
     "src": "images/home 64x64.png",
     "sizes": "64x64",
-    "type": "image/png"
+    "type": "image/png",
+    "purpose": "any maskable"
    }, {
     "src": "images/home 512x512.png",
     "sizes": "512x512",
-    "type": "image/png"
+    "type": "image/png",
+    "purpose": "any maskable"
    }]
  }
